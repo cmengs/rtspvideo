@@ -1,0 +1,37 @@
+<html>
+  <head>
+  <meta charset="gbk">
+  <title>视频直播</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="video-js.css">
+  <!-- If you'd like to support IE8 -->
+  <!--<script src="videojs-ie8.min.js"></script>-->
+</head>
+<body>
+    <video id="my-video" class="video-js" controls preload="auto" width="640" height="300"
+    poster="http://ppt.downhot.com/d/file/p/2014/08/12/9d92575b4962a981bd9af247ef142449.jpg" data-setup="{}">
+        <source src="rtmp://192.168.1.108:1935/live/out" type="rtmp/flv">
+        <!-- 如果上面的rtmp流无法播放，就播放hls流 -->
+        <!-- <source src="http://10.10.5.119/live/livestream.m3u8" type='application/x-mpegURL'> -->
+        <p class="vjs-no-js">播放视频需要启用 JavaScript，推荐使用支持HTML5的浏览器访问。
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+    </video>
+<script src="jquery-1.10.1.js"></script>
+ <script src="video.js"></script>
+ <script>
+     $(window).resize(function(e) {
+         var window_h = $(window).height();
+         var window_w = $(window).width();
+         $(".video-js").height( window_h );
+         $(".video-js").width( window_w );
+     }).resize();
+
+     setTimeout(function(){
+         $('.vjs-big-play-button').css('display', 'none');
+         $('.vjs-big-play-button').click();
+     },100);
+ </script>
+</body>
+</html>
